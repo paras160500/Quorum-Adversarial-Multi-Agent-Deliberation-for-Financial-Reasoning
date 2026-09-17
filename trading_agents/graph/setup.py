@@ -15,6 +15,7 @@ from trading_agents.agents.analysts import build_analyst_nodes, ANALYST_TOOLS
 from trading_agents.agents.researchers import build_researcher_nodes
 from trading_agents.agents.trader_risk import build_trader_and_risk_nodes
 from trading_agents.graph.conditional_logic import ConditionalLogic, create_msg_delete
+from trading_agents.config import MAX_DEBATE_ROUNDS, MAX_RISK_DISCUSS_ROUNDS
 
 # Analyst Sequence
 ANALYST_SEQUENCE = [
@@ -29,7 +30,7 @@ ANALYST_SEQUENCE = [
 #                                Graph Working Statements
 #============================================================================
 
-def build_graph(config: dict, deep_thinking_llm, quick_thinking_llm, toolkit: Toolkit, memories: dict):
+def build_graph(deep_thinking_llm, quick_thinking_llm, toolkit: Toolkit, memories: dict):
     """Build and compile the full multi-agent trading graph.
 
     Returns the compiled graph plus the ConditionalLogic instance (handy for
@@ -40,8 +41,8 @@ def build_graph(config: dict, deep_thinking_llm, quick_thinking_llm, toolkit: To
     trader_risk_nodes = build_trader_and_risk_nodes(quick_thinking_llm, deep_thinking_llm, memories)
 
     conditional_logic = ConditionalLogic(
-        max_debate_rounds=config["max_debate_rounds"],
-        max_risk_discuss_rounds=config["max_risk_discuss_rounds"],
+        max_debate_rounds=MAX_DEBATE_ROUNDS,
+        max_risk_discuss_rounds=MAX_RISK_DISCUSS_ROUNDS,
     )
     msg_clear_node = create_msg_delete()
 

@@ -78,12 +78,12 @@ BEAR_PROMPT = (
 
 def build_researcher_nodes(quick_thinking_llm , deep_thinking_llm , memories : dict) -> dict:
     bull_researcher_node = create_researcher_node(
-        quick_thinking_llm , memories['bull_memory'] , BULL_PROMPT , "Bull Analyst",
+        quick_thinking_llm , memories['bull_memory'] , role_prompt=BULL_PROMPT , agent_name="Bull Analyst",
     )
     bear_researcher_node = create_researcher_node(
-        quick_thinking_llm , memories['bear_memory'], BEAR_PROMPT , "Bear Analyst"
+        quick_thinking_llm , memories['bear_memory'],role_prompt =  BEAR_PROMPT , agent_name = "Bear Analyst"
     )
-    research_manager_node = create_researcher_node(deep_thinking_llm , memories['invest_judge_memory'])
+    research_manager_node = create_Research_manager(deep_thinking_llm , memories['invest_judge_memory'])
 
     return {
         "Bull Researcher" : bull_researcher_node,

@@ -14,7 +14,7 @@ import finnhub
 from langchain_core.tools import tool 
 from langchain_tavily import TavilySearch
 from stockstats import wrap as stockstats_wrap 
-from config import FINNHUB_API_KEY, TAVILY_API_KEY
+from trading_agents.config import FINNHUB_API_KEY, TAVILY_API_KEY
 
 # Setting up the env key
 os.environ["TAVILY_API_KEY"] = TAVILY_API_KEY
@@ -116,7 +116,7 @@ class Toolkit:
         self.get_technical_indicators = get_technical_indicators
         self.get_finnhub_news = get_finnhub_news
         self.get_social_media_sentiment = get_social_media_sentiment
-        self.get_fundamental_analysis = get_fundamental_analysiz()
+        self.get_fundamental_analysis = get_fundamental_analysiz
         self.get_macroeconomic_news = get_macroeconomic_news
 
     def all_tools(self) -> list:

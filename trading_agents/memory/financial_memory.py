@@ -11,7 +11,7 @@
 
 import chromadb
 from langchain_ollama import OllamaEmbeddings
-from config import EMBEDDING_MODEL
+from trading_agents.config import EMBEDDING_MODEL
 
 #============================================================================
 #                                Class Statements

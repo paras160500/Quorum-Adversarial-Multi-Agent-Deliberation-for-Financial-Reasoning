@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 from pydantic import BaseModel, Field
 from langchain_core.prompts import ChatPromptTemplate
 
-from trading_agents.tools import Toolkit
+from trading_agents.tools.toolkit import Toolkit
 
 
 class Audit(BaseModel):
