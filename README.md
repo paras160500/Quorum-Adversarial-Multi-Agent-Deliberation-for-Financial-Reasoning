@@ -24,6 +24,8 @@
 
 <br/>
 
+![Architecture Diagram](diagram.png)
+
 </div>
 
 ---
